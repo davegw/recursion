@@ -8,13 +8,13 @@
 var trackingObj;
 
 var getElementsByClassName = function(className) {
-  var classArray = [];
+  var classArray = [], reset;
 
   // Configure array for the initial function call when trackingObj has not yet been defined.
   if (trackingObj === undefined) {
     var testObj = [];
     testObj.push(document.body);
-    var reset = testObj;
+    reset = testObj;
   }
   else {
     var testObj = trackingObj.children;
@@ -34,7 +34,7 @@ var getElementsByClassName = function(className) {
   });
 
   // On the final function iteration reset trackingObj for the next invocation of the function.
-  if (testObj == reset) {
+  if (testObj === reset) {
     trackingObj = undefined;
   }
 
